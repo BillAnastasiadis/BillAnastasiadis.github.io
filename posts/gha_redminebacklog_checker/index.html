@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+      <title>
+        Using GitHub Actions to enchance Redmine-based Backlog Management ::
+        Bill&#39;s Blog — A blog for Bill&#39;s public thougts
+      </title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta
+  name="description"
+  content="The User Story  Working at SUSE as a software engineer, I came across Progress, which is a Redmine-based backlog tool. While it does, for all means and purpuses, serve it&amp;rsquo;s job as a backlog tracker pretty well, in a modern, agile dev team, there are elevated needs that Progress (as well as other issue-tracking programs) does not meet out of the box.
+What kind of needs? Well, that depends on the team."
+/>
+<meta
+  name="keywords"
+  content=""
+/>
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="/posts/gha_redminebacklog_checker/" />
+
+
+
+
+
+<link rel="stylesheet" href="/assets/style.css" />
+
+<link rel="stylesheet" href="/style.css" />
+
+
+<link
+  rel="apple-touch-icon-precomposed"
+  sizes="144x144"
+  href="/img/apple-touch-icon-144-precomposed.png"
+/>
+<link rel="shortcut icon" href="/img/favicon.png" />
+
+
+<link href="/assets/fonts/Inter-Italic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/assets/fonts/Inter-Regular.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/assets/fonts/Inter-Medium.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/assets/fonts/Inter-MediumItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/assets/fonts/Inter-Bold.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/assets/fonts/Inter-BoldItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Using GitHub Actions to enchance Redmine-based Backlog Management"/>
+<meta name="twitter:description" content="The User Story  Working at SUSE as a software engineer, I came across Progress, which is a Redmine-based backlog tool. While it does, for all means and purpuses, serve it&rsquo;s job as a backlog tracker pretty well, in a modern, agile dev team, there are elevated needs that Progress (as well as other issue-tracking programs) does not meet out of the box.
+What kind of needs? Well, that depends on the team."/>
+
+
+
+<meta property="og:title" content="Using GitHub Actions to enchance Redmine-based Backlog Management" />
+<meta property="og:description" content="The User Story  Working at SUSE as a software engineer, I came across Progress, which is a Redmine-based backlog tool. While it does, for all means and purpuses, serve it&rsquo;s job as a backlog tracker pretty well, in a modern, agile dev team, there are elevated needs that Progress (as well as other issue-tracking programs) does not meet out of the box.
+What kind of needs? Well, that depends on the team." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/gha_redminebacklog_checker/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-12-05T20:19:52&#43;02:00" />
+<meta property="article:modified_time" content="2021-12-05T20:19:52&#43;02:00" /><meta property="og:site_name" content="Bill&#39;s Blog" />
+
+
+
+
+
+
+
+  </head>
+  <body class="dark-theme">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a
+  href="/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >bill&#39;s blog</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+      
+      
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/about">About</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg
+  class="theme-toggler"
+  width="24"
+  height="24"
+  viewBox="0 0 48 48"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"
+  />
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  
+  
+
+  <div class="post">
+    <h1 class="post-title">Using GitHub Actions to enchance Redmine-based Backlog Management</h1>
+    <div class="post-meta">
+      
+        <span class="post-date">
+          2021-12-05
+        </span>
+
+        
+          
+        
+      
+
+      
+
+
+      
+    </div>
+
+    
+
+    
+
+    <div class="post-content">
+      
+      <h3 id="the-user-story">The User Story</h3>
+<hr>
+<p>Working at SUSE as a software engineer, I came across <a href="https://progress.opensuse.org/">Progress</a>, which is a <a href="https://www.redmine.org/">Redmine</a>-based backlog tool. While it does, for all means and purpuses, serve it&rsquo;s job as a backlog tracker pretty well, in a modern, agile dev team, there are elevated needs that Progress (as well as other issue-tracking programs) does not meet out of the box.</p>
+<p>What kind of needs? Well, that depends on the team. Automatic notifications about various changes, aggregated status pages, complex statistics to name a few. And beyond just calculating and/or displaying backlog-related information, sometimes teams would like to automate specific actions for their backlogs. For example, a team might want all tickets containing a specific tag to be assigned to a specific project or person, all tickets which are in progress for more than 2 weeks to automatically change status, all new tickets to be automatically assigned a standard estimated time for release, and various other functions.</p>
+<h3 id="the-solution">The Solution</h3>
+<hr>
+<p>To accomplish the complex backlog monitoring and management tasks described in the previous section, a user needs:</p>
+<ul>
+<li>a way to access and command the Redmine server remotely</li>
+<li>automated, scheduled scripts that interact with the backlog and perform all kinds of data extraction, analysis and backlog manipulation the team needs</li>
+<li>a web application or page to display the results for the team&rsquo;s PO, SM and developers</li>
+</ul>
+<p>This proposal, already implemented for the qa-tools and qe-c squads, presents solutions for all three points mentioned above, and aims to do it in an easy, innovative way.</p>
+<h4 id="remote-access-to-redmine-based-backlogs">Remote Access to Redmine-based Backlogs</h4>
+<p>Redmine doesn&rsquo;t provide users with the complex scripting and display functionality needed to tailor backlog management to their exact needs, which is fortunate - that would make it almost as complex as writting a backlog tracker from scratch. What Redmine does, however, is provide users with an <em>extended, easy to use <a href="https://www.redmine.org/projects/redmine/wiki/rest_api">REST API</a></em>, which can be used in scripts and other programs for automation and complex management of the backlog. A link to the API&rsquo;S page, as well as other useful links, can also be fount at the end of this post.</p>
+<h4 id="schedule-of-automated-scripts">Schedule of Automated Scripts</h4>
+<p>There are a lot of ways to schedule automated scripts: in a personal computer with cron, on a company server, as part of the excecution of a company app, etc. However, there is a way to run scheduled automated tests continuously, without access to a company server, without need to rely on a personal machine and without incorporating the scripts to a different app.</p>
+<p><a href="https://github.com/features/actions">GitHub Actions</a> provides a free, easy and readily accessible way to schedule scripts without the need for any infrastructure at all: the backlog management scripts can be ignited by GitHub Actions, either as part of a standalone repository created for that purpose or as part of the Actions of a larger repository: this would depend on every team&rsquo;s structure and needs. For most cases, however, I would suggest that a standalone repository provides a cleaner and more intuitive solution.</p>
+<p>GitHub Actions makes it possible to schedule actions to execute as frequent as in 10 minute intervals: the vast majority of teams would not need a more frequent monitoring and management of their backlogs than that. In most cases, even greater time intervals would suffice - maybe even be preffered.</p>
+<h4 id="display-of-results">Display of Results</h4>
+<p>Again, there are various solutions for displaying the results of the automated scripts. Personal or company servers, personal blogs and many more.</p>
+<p>In the first iterations of the GHA Redmine Backlog Checker, for SUSE qa-tools and for qe-containers, I used a quick and dirty solution: the GitHub Action pipeline would overwrite the README.md file of the repository, thus displaying the results in the front page of said repository. This approach was quick, available immediately and intuitive, as every part of the backlog checker was contained in a single repository.</p>
+<p>In order to not litter the commit history, the new README.md file was amended to the last commit by the GHA Bot, instead of creating a new commit. Even so, this was a hacky solution, and hacky solutions are best being temporary and not permanent.</p>
+<p>The devs at qa-tools have since come up with a new idea: <em>using the github-provided blog page for users and organizations to display the results</em> - very much like the one you are reading right now. This is still intuitive, since you can connect the result page to the organization that the team belongs to, it does not litter the commit history of the backlog repository in any way, and provides full customization of the results page: users are basically able to develop a full fledged, custom  web page.</p>
+<h3 id="the-proposed-solution-in-action">The Proposed Solution in Action</h3>
+<hr>
+<p>The solution described above, has already been implemented for two different teams of the Quality Engineering department in SUSE Software Solutions: qa-tools and qe-c. A big part of those teams involves open source development (especially qa-tools), and even when private issues are concerned, no information or access is given to anothorized users: that is fortunate, since I can paste both backlog checkers here, in a public post.</p>
+<p>The <a href="https://github.com/os-autoinst/qa-tools-backlog-assistant">qa-tools implementation</a>, thanks to the awesome engineers there, already moved the displayed results to <code>os-autoinst</code> organization&rsquo;s github-provided website space. The <a href="https://github.com/BillAnastasiadis/qe-c-backlog-assistant">qe-c implementation</a> still uses the repository&rsquo;s README for now, but has a lot more queries and showcases more complex backlog monitoring functions.</p>
+<p>Links to both are also provided in the end of this post.</p>
+<h3 id="conclusion">Conclusion</h3>
+<hr>
+<p>I have received positive feedback from both teams that already use this solution, and I am very happy to see that the backlog checker tools evolve at a rapid pace.</p>
+<p>It would be nice to see some standardization, so that different teams with different needs can use the same repository as a base, instead of having to write their own version. That would turn the tool into a modular, standardized, ready-to-use solution for almost every Redmine-based backlog. The people at qa-tools already have an open issue about this, and I&rsquo;m sure it will soon be a reality.</p>
+<p>If you&rsquo;re a PO, SM or developer that is part of a Redmine-based team,  check the implementations, and if you like the idea feel free to reach out or customize the tool for your team to automate a big chunk of the backlog monitoring and management.</p>
+<p>That&rsquo;s all for now. I hope you enjoyed the read, and that you will find something usefull to take out of it. Until next time!</p>
+<h3 id="links">Links</h3>
+<ul>
+<li>Redmine REST API: <a href="https://www.redmine.org/projects/redmine/wiki/rest_api">https://www.redmine.org/projects/redmine/wiki/rest_api</a></li>
+<li>qa-tools backlog checker repo: <a href="https://github.com/os-autoinst/qa-tools-backlog-assistant">https://github.com/os-autoinst/qa-tools-backlog-assistant</a></li>
+<li>qa-tools backlog checker results: <a href="https://os-autoinst.github.io/qa-tools-backlog-assistant/">https://os-autoinst.github.io/qa-tools-backlog-assistant/</a></li>
+<li>qe-c backlog checker repo + results: <a href="https://github.com/BillAnastasiadis/qe-c-backlog-assistant">https://github.com/BillAnastasiadis/qe-c-backlog-assistant</a></li>
+</ul>
+
+    </div>
+    
+      
+    
+
+    
+      
+        
+
+      
+    
+  </div>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <a
+  href="/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >bill&#39;s blog</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+      <div class="copyright">
+        <span
+          >© 2021 Powered by
+          <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></span
+        >
+        <span
+          >Theme created by
+          <a href="https://twitter.com/panr" target="_blank" rel="noopener">panr</a></span
+        >
+      </div>
+    
+  </div>
+</footer>
+
+<script src="/assets/main.js"></script>
+<script src="/assets/prism.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>

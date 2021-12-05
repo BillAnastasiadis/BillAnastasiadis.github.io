@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Bill&#39;s Blog</title>
+    
+    
+    
+    <link>/posts/</link>
+    <description>Recent content in Posts on Bill&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 05 Dec 2021 20:19:52 +0200</lastBuildDate>
+    
+	<atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Using GitHub Actions to enchance Redmine-based Backlog Management</title>
+      <link>/posts/gha_redminebacklog_checker/</link>
+      <pubDate>Sun, 05 Dec 2021 20:19:52 +0200</pubDate>
+      
+      <guid>/posts/gha_redminebacklog_checker/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          The User Story  Working at SUSE as a software engineer, I came across Progress, which is a Redmine-based backlog tool. While it does, for all means and purpuses, serve it&amp;rsquo;s job as a backlog tracker pretty well, in a modern, agile dev team, there are elevated needs that Progress (as well as other issue-tracking programs) does not meet out of the box.
+What kind of needs? Well, that depends on the team.
+          
+        
+        </description>
+    </item>
+    
+  </channel>
+</rss>
